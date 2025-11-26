@@ -10,7 +10,7 @@ services:
       - MYSQL_USER=wpuser
       - MYSQL_PASSWORD=wppass
     volumes:
-      - db-data:/var/lib/mysql
+      - ./db_data:/var/lib/mysql
     networks:
       - wordpress-net
 
@@ -27,13 +27,9 @@ services:
     depends_on:
       - db
     volumes:
-      - wp-data:/var/www/html/wp-content
+      - ./wordpress_data:/var/www/html/wp-content
     networks:
       - wordpress-net
-
-volumes:
-  db-data:
-  wp-data:
 
 networks:
   wordpress-net:
